@@ -1,0 +1,5 @@
+FROM nginx:alpine
+
+MAINTAINER Pranav Dhopey
+
+COPY index.html cloud.jpg /usr/share/nginx/html/
