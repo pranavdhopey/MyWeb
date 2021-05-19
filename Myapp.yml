@@ -1,0 +1,36 @@
+### Deployment ###
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+  labels:
+    app: myapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: docker pull pranavdhopey/myweb:httpd
+        ports:
+        - containerPort: 80
+
+### Service ### 
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  selector:
+    app: myapp
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 80
+  type: LoadBalancer
