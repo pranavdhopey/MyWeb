@@ -1,0 +1,24 @@
+### Deployment ###
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+  labels:
+    app: myapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  strategy:
+    type: Recreate 
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: pranavdhopey/myweb:httpd  # Version 1
+        ports:
+        - containerPort: 80
