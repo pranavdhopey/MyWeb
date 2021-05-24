@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+  labels:
+    app: myapp
+spec:
+  containers:
+    - name: myapp-container
+      image: docker pull pranavdhopey/myweb:httpd
+      ports:
+        - name: web
+          containerPort: 80
+      resources:
+        request:
+          memory: 200Mi  #1KiB = 1024bytes  
+          cpu: 500m      #1cpu = 1000m cpu
+        limit:
+          memory: 100Mi
+            cpu: 250m
