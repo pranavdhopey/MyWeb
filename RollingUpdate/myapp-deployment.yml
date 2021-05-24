@@ -1,0 +1,30 @@
+### Deployment ###
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+  labels:
+    app: myapp
+  annotations:
+    kubernetes.io/change-cause: "httpd v1 image"
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: myapp
+#  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 4
+      maxUnavailable: 2
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: pranavdhopey/myweb:httpd
+        ports:
+        - containerPort: 80
