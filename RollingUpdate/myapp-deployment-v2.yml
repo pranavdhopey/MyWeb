@@ -6,16 +6,16 @@ metadata:
   labels:
     app: myapp
   annotations:
-    kubernetes.io/change-cause: "httpd v1 image"
+    kubernetes.io/change-cause: "httpd v2 image"
 spec:
   replicas: 10
   selector:
     matchLabels:
       app: myapp
-#  minReadySeconds: 10
+  minReadySeconds: 5
   strategy:
     rollingUpdate:
-      maxSurge: 4
+      maxSurge: 2
       maxUnavailable: 2
     type: RollingUpdate
   template:
@@ -25,6 +25,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: pranavdhopey/myweb:httpd
+        image: pranavdhopey/myweb:httpdv2  # Version 2
         ports:
         - containerPort: 80
