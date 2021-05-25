@@ -3,3 +3,7 @@ FROM nginx:alpine
 MAINTAINER Pranav Dhopey
 
 COPY index.html cloud.jpg /usr/share/nginx/html/
+
+RUN mkdir /usr/share/nginx/html/kube
+
+COPY ./Kube/ /usr/share/nginx/html/kube/

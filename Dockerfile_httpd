@@ -3,3 +3,7 @@ FROM httpd:alpine
 MAINTAINER Pranav Dhopey
 
 COPY index.html cloud.jpg /usr/local/apache2/htdocs/
+
+RUN mkdir /usr/local/apache2/htdocs/kube
+
+COPY ./Kube/ /usr/local/apache2/htdocs/kube/
