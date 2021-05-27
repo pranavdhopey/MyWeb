@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: pranavdhopey/myweb:httpd
+        image: pranavdhopey/myweb:httpdv2
         ports:
         - containerPort: 80
