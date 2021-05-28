@@ -24,8 +24,7 @@ spec:
       previewService: rollout-bluegreen-preview
       autoPromotionEnabled: false
       maxUnavailable: 1
-      maxSurge: 1
-
+      maxSurge: 1 
 ---
 
 ### Service ### 
@@ -38,7 +37,6 @@ spec:
     app: rollout-bluegreen
   ports:
   - protocol: TCP
-    port: 8080
+    port: 80
     targetPort: 80
-  type: NodePort	  
-	  
+  type: NodePort
