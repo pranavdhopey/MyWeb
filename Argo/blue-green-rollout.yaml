@@ -24,19 +24,38 @@ spec:
       previewService: rollout-bluegreen-preview
       autoPromotionEnabled: false
       maxUnavailable: 1
-      maxSurge: 1 
+      maxSurge: 1
+
 ---
 
 ### Service ### 
 apiVersion: v1
 kind: Service
 metadata:
-  name: rollout-bluegreen-service
+  name: rollout-bluegreen-active
 spec:
   selector:
     app: rollout-bluegreen
   ports:
   - protocol: TCP
-    port: 80
+    port: 8080
     targetPort: 80
-  type: NodePort
+  type: NodePort	  
+  
+  
+---
+
+### Service ### 
+apiVersion: v1
+kind: Service
+metadata:
+  name: rollout-bluegreen-active
+spec:
+  selector:
+    app: rollout-bluegreen-preview
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 80
+  type: NodePort  
+	  
