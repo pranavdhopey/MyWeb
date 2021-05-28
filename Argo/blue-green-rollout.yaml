@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: rollout-bluegreen
+spec:
+  replicas: 10
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: rollout-bluegreen
+  template:
+    metadata:
+      labels:
+        app: rollout-bluegreen
+    spec:
+      containers:
+      - name: rollouts-myweb
+        image: pranavdhopey/myweb:httpd
+        ports:
+        - containerPort: 80
+  strategy:
+    blueGreen: 
+      activeService: rollout-bluegreen-active
+      previewService: rollout-bluegreen-preview
+      autoPromotionEnabled: false
+	  maxUnavailable: 1
+	  maxSurge: 1
+	  
+---
+
+### Service ### 
+apiVersion: v1
+kind: Service
+metadata:
+  name: rollout-bluegreen-service
+spec:
+  selector:
+    app: rollout-bluegreen
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 80
+  type: NodePort	  
+	  
