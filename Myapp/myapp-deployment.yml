@@ -6,7 +6,7 @@ metadata:
   labels:
     app: myapp
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
       app: myapp
@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: pranavdhopey/myweb:httpd
+        image: asia.gcr.io/wordpress-project-313704/myweb:httpdv3
         ports:
         - containerPort: 80
