@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: rollouts-myweb
-        image: pranavdhopey/myweb:httpd
+        image: pranavdhopey/myweb:httpdv2
         ports:
         - containerPort: 80
   strategy:
