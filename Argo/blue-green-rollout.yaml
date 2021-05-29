@@ -48,10 +48,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: rollout-bluegreen-active
+  name: rollout-bluegreen-preview
 spec:
   selector:
-    app: rollout-bluegreen-preview
+    app: rollout-bluegreen
   ports:
   - protocol: TCP
     port: 8080
