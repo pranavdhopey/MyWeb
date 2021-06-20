@@ -13,8 +13,8 @@ spec:
           containerPort: 80
       resources:
         request:
-          memory: 200Mi  #1KiB = 1024bytes  
-          cpu: 500m      #1cpu = 1000m cpu
+          memory: 20Mi  #1KiB = 1024bytes  
+          cpu: 50m      #1cpu = 1000m cpu
         limit:
           memory: 100Mi
             cpu: 250m
