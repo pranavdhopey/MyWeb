@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
     - name: myapp-container
-      image: docker pull pranavdhopey/myweb:httpd
+      image: pranavdhopey/myweb:httpd
       ports:
         - name: web
           containerPort: 80
