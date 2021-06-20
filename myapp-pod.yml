@@ -17,4 +17,4 @@ spec:
           cpu: 50m      #1cpu = 1000m cpu
         limit:
           memory: 100Mi
-            cpu: 250m
+          cpu: 250m
